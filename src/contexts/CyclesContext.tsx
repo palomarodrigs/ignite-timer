@@ -7,6 +7,8 @@ import {
   markCurrentCycleAsFinishedAction,
 } from '../reducers/cycles/actions'
 
+import { differenceInSeconds } from 'date-fns'
+
 interface CreateCycleData {
   task: string
   minutesAmount: number
@@ -50,7 +52,13 @@ export function CyclesContextProvider({ children }: CyclesContextProviderProps) 
   const { cycles, activeCycleId } = cyclesState
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
-  const [amountSecondPassed, setAmountSecondPassed] = useState(0)
+  const [amountSecondPassed, setAmountSecondPassed] = useState(() => {
+    if (activeCycle) {
+      return differenceInSeconds(new Date(), new Date(activeCycle.startDate))
+    }
+
+    return 0
+  })
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState)
