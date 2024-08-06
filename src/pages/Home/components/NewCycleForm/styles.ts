@@ -4,6 +4,7 @@ export const FormContainer = styled.div`
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -13,6 +14,18 @@ export const FormContainer = styled.div`
   font-size: 1.125rem;
   font-weight: bold;
   flex-wrap: wrap;
+
+  margin-top: 3rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: row;
+    margin-top: 2rem;
+  }
 `
 
 export const Stepper = styled.div`
