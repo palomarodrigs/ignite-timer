@@ -15,6 +15,18 @@ export const FormContainer = styled.div`
   flex-wrap: wrap;
 `
 
+export const Stepper = styled.div`
+  display: flex;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  border-bottom: 2px solid ${(props) => props.theme['gray-500']};
+
+  &:focus-within {
+    border-color: ${(props) => props.theme['green-500']};
+  }
+`
+
 const BaseInput = styled.input`
   height: 2.5rem;
   padding: 0 0.5rem;
@@ -62,5 +74,30 @@ export const TaskInput = styled(BaseInput)`
 `
 
 export const MinutesAmountInput = styled(BaseInput)`
-  width: 4rem;
+  width: 2.3rem;
+  text-align: center;
+  border-bottom: 0;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Oculta as setinhas em navegadores Firefox */
+  -moz-appearance: textfield;
+`
+
+export const Button = styled.button`
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+
+  border: 0;
+  background: none;
+  color: ${(props) => props.theme['gray-500']};
+
+  &:hover {
+    color: ${(props) => props.theme['green-500']};
+  }
 `

@@ -1,13 +1,34 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { useFormContext } from 'react-hook-form'
 import { CyclesContext } from '../../../../contexts/CyclesContext'
 
-import { FormContainer, MinutesAmountInput, TaskInput } from './styles'
+import { Minus, Plus } from 'phosphor-react'
+import { FormContainer, TaskInput, Stepper, MinutesAmountInput, Button } from './styles'
 
 export function NewCycleForm() {
-  const { register } = useFormContext()
+  const [minutes, setMinutes] = useState(0)
+
+  const { register, setValue } = useFormContext()
   const { activeCycle } = useContext(CyclesContext)
+
+  const incrementMinutes = () => {
+    setMinutes((prev) => Math.min(prev + 5, 60))
+  }
+
+  const decrementMinutes = () => {
+    setMinutes((prev) => Math.max(prev - 5, 5))
+  }
+
+  useEffect(() => {
+    if (activeCycle) {
+      setMinutes(0)
+    }
+  }, [activeCycle])
+
+  useEffect(() => {
+    setValue('minutesAmount', minutes)
+  }, [minutes, setValue])
 
   return (
     <FormContainer>
@@ -20,23 +41,26 @@ export function NewCycleForm() {
         {...register('task')}
       />
 
-      <datalist id="task-suggestions">
-        <option value="Projeto 1" />
-        <option value="Projeto 2" />
-        <option value="Projeto 3" />
-      </datalist>
+      <datalist id="task-suggestions" />
 
-      <label htmlFor="task">durante</label>
-      <MinutesAmountInput
-        type="number"
-        id="minutesAmount"
-        placeholder="00"
-        step={5}
-        min={1}
-        max={60}
-        disabled={!!activeCycle}
-        {...register('minutesAmount', { valueAsNumber: true })}
-      />
+      <label htmlFor="minutesAmount">durante</label>
+
+      <Stepper>
+        <Button type="button" onClick={decrementMinutes} disabled={!!activeCycle}>
+          <Minus />
+        </Button>
+        <MinutesAmountInput
+          type="number"
+          id="minutesAmount"
+          placeholder="00"
+          value={minutes}
+          disabled={!!activeCycle}
+          {...register('minutesAmount', { valueAsNumber: true })}
+        />
+        <Button type="button" onClick={incrementMinutes} disabled={!!activeCycle}>
+          <Plus />
+        </Button>
+      </Stepper>
 
       <span>minutos.</span>
     </FormContainer>
