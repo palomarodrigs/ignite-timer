@@ -15,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme['gray-900']};
     color: ${(props) => props.theme['gray-300']};
     -webkit-font-smoothing: antialiased;
+
+    @media (min-width: 1300px) {
+    overflow-y: hidden;
+  }
   }
 
   body, input, textarea, button {
@@ -23,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 8px; 
 }
 
