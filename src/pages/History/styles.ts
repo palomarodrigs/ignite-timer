@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HistoryContainer = styled.main`
   flex: 1;
-  padding: 3.5rem;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -11,12 +11,16 @@ export const HistoryContainer = styled.main`
     font-size: 1.5rem;
     color: ${(props) => props.theme['gray-100']};
   }
+
+  @media (min-width: 768px) {
+    padding: 3.5rem;
+  }
 `
 
 export const HistoryList = styled.div`
   flex: 1;
-  overflow: auto;
-  max-height: 36.5rem;
+  overflow-y: auto;
+  max-height: 30rem;
   padding-right: 0.5rem;
   margin-top: 2rem;
 
@@ -61,6 +65,14 @@ export const HistoryList = styled.div`
         padding-right: 1.5rem;
       }
     }
+  }
+
+  @media (max-width: 375px) {
+    max-height: 20rem;
+  }
+
+  @media (min-width: 768px) {
+    max-height: 36.5rem;
   }
 `
 
