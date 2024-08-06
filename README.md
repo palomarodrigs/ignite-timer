@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Ignite Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app for managing tasks with a timer. Users can add new tasks and start a timer for each one, pause the timer, and view task history.
 
-Currently, two official plugins are available:
+![preview](.github/preview.gif)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔨 Features
 
-## Expanding the ESLint configuration
+- [x] Add new task
+- [x] Interrupt task
+- [x] View task history
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🧪 Tools
 
-- Configure the top-level `parserOptions` property like this:
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Router Dom](https://www.npmjs.com/package/react-router-dom)
+- [zod](https://zod.dev/)
+- [date-fns](https://date-fns.org/)
+- [immer](https://immerjs.github.io/immer/)
+- [phosphor-react](https://phosphoricons.com/)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## 🚀 Deploy
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+You can access the project through [this link](https://ignite-timer-foundations.vercel.app/)
+
+---
+
+<p align="center">Developed with 💜 by <a href="https://www.linkedin.com/in/palomarodrigs" target="_blank">Paloma Rodrigues</a></p>
